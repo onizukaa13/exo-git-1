@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Formulaires</title>
+    <meta name="description" content="Présenter une interface de saisie à l'utilisateur">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <header class="banner">
+      <a class="site-logo" href="./">Formulaire</a>
+      <p class="site-description">Les différents champs de saisie</p>
+      <nav class="banner-nav">
+        <a href="#">Un lien</a>
+          <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main class="formulaire">
+      <h1>Formulaires</h1>
+
+      <section>
+        <h2>Methode de Soumission:post</h2>
+        <form method="post" action="post.php" enctype="mutipart/form-data" novalidate>
+          <p class="form-help">Les champs précédés d'un (*) sont obligatoires</p>
+          <fieldset>
+            <legend>Saisie de Texte</legend>
+            <div class="form-group">
+              <label for="text">Ligne de Texte obligatoire</label>
+              <input type="text" name="text" id="text" required minlength="2" maxlength="5" aria-describedby="help-text" autofocus>
+              <p id="help-text" class="form-help">Le champs est obligatoire doit contenir au minimum 2 caractères et 5 au maximum (nota:le champs a le focus au chargement,grace à l'attribut <code>autofocus</code>)</p>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email"
+                placeholder="votrenom@votredomaine" size="100">
+                </div>
+                <div class="form-group">
+                  <label for="message">Bloc de texte</label>
+                  <textarea id="message" name="message" rows="8" cols="80"
+                  spellcheck="true"></textarea>
+
+                </div>
+          </fieldset>
+          <fieldset>
+            <legend>Proposer des valeurs:Liste de choix</legend>
+            <fieldset>
+              <legend>Choix Multiples</legend>
+              <div class="form-check">
+                <label for="choice1">
+                  <input type="checkbox" id="choice1" name="Choix1" value="1" checked> Choix1
+                  </label>
+
+                  <label for="Choice2">
+                  <input type="checkbox" id="choice2" name="Choix2" value="2">Choix2
+                </label>
+
+                <label for="Choice3">
+                <input type="checkbox" id="choice3" name="Choix3" value="3">Choix3
+              </label>
+              </div>
+
+            </fieldset>
+
+          <fieldset>
+            <legend>Choix Unique</legend>
+            <div class="form-check">
+              <label for="on">
+                <input type="radio" name="choice" id="on" value="on">Oui
+              </label>
+              <label for="off">
+                <input type="radio" name="choice" id="off" value="off">Non
+
+              </label>
+            </fieldset>
+            <fieldset>
+              <legend>Liste de choix</legend>
+              <div class="form-group">
+
+              </div>
+              <select name="Country" id="country" aria-label="Choix du Pays">
+                <option>Choisir votre pays</option>
+                <optgroup label="Europe">
+                <option value="en">Angleterre</option>
+                <option value="fr">France</option>
+                <option value="it">Italie</option>
+                <option value="es">Espagne</option>
+                </optgroup>
+                <optgroup label="Amerique du Nord">
+                <option value="us">USA</option>
+                <option value="ca">Canada</option>
+                </optgroup>
+
+              </select>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Autres types de champs</legend>
+              <input type="hidden" name="id_article" value="135">
+              <div class="form-group">
+                <label for="pass">Mot de Passe</label>
+                <input type="password" name="pass" id="pass"
+
+              </div>
+              <div class="form-group">
+                <label for="phone">Téléphone</label>
+                <input type="tel" pattern="+{11}[0-9]"
+                placeholder="+336..."
+                id="phone"
+                name="phone">
+              </div>
+              <div class="form-group">
+                <label for="date">Date</label>
+                <input type="date" name="date" id="date"
+
+              </div>
+              <div class="form-group">
+                <label for="range">Intervalle</label>
+                <input type="range" name="range" id="range" min="0" max="100" value="90">
+
+                <div class="form-group">
+                  <label for="number">Nombre</label>
+                  <input type="number" min="0" max="100" step="2">
+                </div>
+
+                <div class="form-group">
+                  <label for="file">Joindre un fichier</label>
+                  <input type="file" id="file" name="file" accept="image/*" multiple>
+                </div>
+
+
+              </div>
+
+
+            </fieldset>
+            <div class="form-button">
+              <input type="submit" value="Soumettre le Formulaire">
+              <input type="submit" value="Reset">
+              </div>
+
+
+        </form>
+        </section>
+        <section>
+        <h2>Méthode de soumission : get</h2>
+        <p>La valeur par default de l'attribut <code>method</code>: les valeurs saisies sont envoyées dans l'url à la soumission du formulaire:<strong> à éviter pour les formulaires de saisies de données</strong></p>
+        <form method="get" action="post.php">
+        <fieldset>
+        <legend>Mon premier Formulaire</legend>
+        <div class="form-group">
+          <label for="firstname">Votre prénom</label>
+          <input type="text" id="firstname" name="first-name">
+
+          </div>
+          <div class="form-group">
+            <label for="lastname">Votre nom</label>
+            <input type="text" id="lastname" name="last-name">
+
+          </div>
+          </fieldset>
+          <div class="form-button">
+            <input type="submit" value="Soumettre le Formulaire">
+            <button type="submit">Bouton</button>
+            <input type="submit" value="Reset">
+            </div>
+
+        </form>
+      </section>
+
+
+
+
+    </main>
+
+    <footer class="footer">
+      <p>Formation Développeur WEB - &copy; Eleve : Leo Metayer <a href="https://veroniquecuomo.fr/support/%22%3ESupport formation</a></p>
+      <p>Nous remercions les auteurs des photos présentées sur ce site, récoltées sur <a href="https://pixabay.com/fr/%22%3EPixabay</a></p>
+      <a id="goTop" href="#" title="Remonter">&UpArrow;</a>
+    </footer>
+  </body>
+</html>
